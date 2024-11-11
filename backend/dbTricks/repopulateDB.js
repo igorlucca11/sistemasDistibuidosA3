@@ -20,7 +20,7 @@ const createTables = () => {
       local VARCHAR(255),
       capitao_id INT,
       cor_principal VARCHAR(30) NOT NULL,
-      cor_secundaria VARCHAR(30) NOT NULL,
+      cor_secundaria VARCHAR(30) NOT NULL
     )`,
 
     "DROP TABLE IF EXISTS jogadores",
@@ -31,7 +31,7 @@ const createTables = () => {
       usuario_id INT,
       time_id INT,
       idade INT NOT NULL,
-      posicao VARCHAR(100),
+      posicao VARCHAR(100)
     )`,
 
     "DROP TABLE IF EXISTS partidas",
@@ -40,7 +40,7 @@ const createTables = () => {
       data DATETIME NOT NULL,
       time_1 INT NOT NULL,
       time_2 INT NOT NULL,
-      finalizada BOOLEAN NOT NULL DEFAULT 0,
+      finalizada BOOLEAN NOT NULL DEFAULT 0
     )`,
 
     "DROP TABLE IF EXISTS gols",
@@ -49,7 +49,7 @@ const createTables = () => {
       partida_id INT NOT NULL,
       minuto INT NOT NULL,
       jogador_id INT NOT NULL,
-      time_id INT NOT NULL,
+      time_id INT NOT NULL
     )`,
 
     `INSERT INTO usuarios (email, nome, senha, cpf, administrador) VALUES
