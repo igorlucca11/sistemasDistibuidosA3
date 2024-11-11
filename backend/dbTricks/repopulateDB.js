@@ -21,7 +21,6 @@ const createTables = () => {
       capitao_id INT,
       cor_principal VARCHAR(30) NOT NULL,
       cor_secundaria VARCHAR(30) NOT NULL,
-      FOREIGN KEY (capitao_id) REFERENCES usuarios(id)
     )`,
 
     "DROP TABLE IF EXISTS jogadores",
@@ -33,7 +32,6 @@ const createTables = () => {
       time_id INT,
       idade INT NOT NULL,
       posicao VARCHAR(100),
-      FOREIGN KEY (time_id) REFERENCES times(id)
     )`,
 
     "DROP TABLE IF EXISTS partidas",
@@ -43,8 +41,6 @@ const createTables = () => {
       time_1 INT NOT NULL,
       time_2 INT NOT NULL,
       finalizada BOOLEAN NOT NULL DEFAULT 0,
-      FOREIGN KEY (time_1) REFERENCES times(id),
-      FOREIGN KEY (time_2) REFERENCES times(id)
     )`,
 
     "DROP TABLE IF EXISTS gols",
@@ -54,9 +50,6 @@ const createTables = () => {
       minuto INT NOT NULL,
       jogador_id INT NOT NULL,
       time_id INT NOT NULL,
-      FOREIGN KEY (partida_id) REFERENCES partidas(id),
-      FOREIGN KEY (jogador_id) REFERENCES jogadores(id),
-      FOREIGN KEY (time_id) REFERENCES times(id)
     )`,
 
     `INSERT INTO usuarios (email, nome, senha, cpf, administrador) VALUES
