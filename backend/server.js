@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 //Main Endpoint
-app.get('/', (req, res) => { res.json{message: "Api IBMR FOOTBALL"}})
+app.get('/', (req, res) => { res.json({message: "Api IBMR FOOTBALL"})})
 
 
 // Rotas de Times
