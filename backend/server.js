@@ -43,7 +43,7 @@ app.patch('/gols/:id', editarGol); // Editar gol
 app.delete('/gols/:id', deletarGol); // Excluir gol
 app.get('/gols/artilharia', getArtilharia); // Artilharia
 
-module.exports = app;
+app.post('/db', repouateDB); // Listar todos os gols
 
 
 const PORT = process.env.PORT || 5000;
