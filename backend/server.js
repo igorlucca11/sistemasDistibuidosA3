@@ -7,6 +7,7 @@ const { listarPartidas, criarPartida, editarPartida, deletarPartida } = require(
 const { listarGols, criarGol, editarGol, deletarGol } = require('./Gols/gols');
 const gerarPartidas = require('./Partidas/gerarPartidas.js');
 const getArtilharia = require('./Gols/artilharia');
+const repopulateDB = require('./dbTricks/repopulateDB');
 
 app.use(express.json());
 
