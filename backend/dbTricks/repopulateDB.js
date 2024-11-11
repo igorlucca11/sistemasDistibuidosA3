@@ -184,10 +184,12 @@ const createTables = () => {
   
 };
 
-repopulateDB(); function repopulateDB() {
+function repopulateDB(req, res) {
+
   console.log('Repopulando o banco de dados...');
   createTables();
   console.log('Repopulação concluida.');
+  res.json({ message: 'Repopulação concluida.' });
 }
 
 module.exports = repopulateDB;
