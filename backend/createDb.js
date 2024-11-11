@@ -29,8 +29,7 @@ const createTables = () => {
       local VARCHAR(255),
       capitao_id INT,
       cor_principal VARCHAR(30) NOT NULL,
-      cor_secundaria VARCHAR(30) NOT NULL,
-      FOREIGN KEY (capitao_id) REFERENCES usuarios(id)
+      cor_secundaria VARCHAR(30) NOT NULL
     );
   `;
 
@@ -42,8 +41,7 @@ const createTables = () => {
       usuario_id INT,
       time_id INT,
       idade INT NOT NULL,
-      posicao VARCHAR(100),
-      FOREIGN KEY (time_id) REFERENCES times(id)
+      posicao VARCHAR(100)
     );
   `;
 
@@ -53,9 +51,7 @@ const createTables = () => {
       data DATETIME NOT NULL,
       time_1 INT NOT NULL,
       time_2 INT NOT NULL,
-      finalizada BOOLEAN NOT NULL DEFAULT 0,
-      FOREIGN KEY (time_1) REFERENCES times(id),
-      FOREIGN KEY (time_2) REFERENCES times(id)
+      finalizada BOOLEAN NOT NULL DEFAULT 0
     );
   `;
 
@@ -65,10 +61,7 @@ const createTables = () => {
       partida_id INT NOT NULL,
       minuto INT NOT NULL,
       jogador_id INT NOT NULL,
-      time_id INT NOT NULL,
-      FOREIGN KEY (partida_id) REFERENCES partidas(id),
-      FOREIGN KEY (jogador_id) REFERENCES jogadores(id),
-      FOREIGN KEY (time_id) REFERENCES times(id)
+      time_id INT NOT NULL
     );
   `;
 
