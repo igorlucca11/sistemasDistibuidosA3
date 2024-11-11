@@ -11,6 +11,11 @@ const repopulateDB = require('./dbTricks/repopulateDB');
 
 app.use(express.json());
 
+
+//Main Endpoint
+app.get('/', (req, res) => { res.json{message: "Api IBMR FOOTBALL"})
+
+
 // Rotas de Times
 app.get('/times', listarTimes); // Listar todos os times
 app.post('/times', criarTime); // Criar novo time
