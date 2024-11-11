@@ -16,33 +16,61 @@ const createTables = () => {
       email VARCHAR(255) NOT NULL,
       nome VARCHAR(255) NOT NULL,
       senha VARCHAR(255) NOT NULL,
+      cpf VARCHAR(255) NOT NULL,
       administrador BOOLEAN NOT NULL DEFAULT 0
     );
   `;
 
   const createTimesTable = `
-    CREATE TABLE  times (
+    CREATE TABLE IF NOT EXISTS times (
       id INT AUTO_INCREMENT PRIMARY KEY,
       nome VARCHAR(255) NOT NULL,
       sigla VARCHAR(50) NOT NULL,
-      local VARCHAR(255) NOT NULL,
+      local VARCHAR(255),
+      capitao_id INT,
       cor_principal VARCHAR(30) NOT NULL,
-      cor_secundaria VARCHAR() NOT NULL
+      cor_secundaria VARCHAR(30) NOT NULL,
+      FOREIGN KEY (capitao_id) REFERENCES usuarios(id)
     );
   `;
 
-
   const createJogadoresTable = `
-  CREATE TABLE IF NOT EXISTS jogadores (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_completo VARCHAR(255) NOT NULL,
-    numero INT NOT NULL,
-    time_id INT NOT NULL,
-    idade INT NOT NULL,
-    posicao VARCHAR(100),
-    FOREIGN KEY (time_id) REFERENCES times(id)  -- Chave estrangeira para a tabela times
-  );`; 
+    CREATE TABLE IF NOT EXISTS jogadores (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      nome_completo VARCHAR(255) NOT NULL,
+      numero INT,
+      usuario_id INT,
+      time_id INT,
+      idade INT NOT NULL,
+      posicao VARCHAR(100),
+      FOREIGN KEY (time_id) REFERENCES times(id)
+    );
+  `;
 
+  const createPartidasTable = `
+    CREATE TABLE IF NOT EXISTS partidas (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      data DATETIME NOT NULL,
+      time_1 INT NOT NULL,
+      time_2 INT NOT NULL,
+      finalizada BOOLEAN NOT NULL DEFAULT 0,
+      FOREIGN KEY (time_1) REFERENCES times(id),
+      FOREIGN KEY (time_2) REFERENCES times(id)
+    );
+  `;
+
+  const createGolsTable = `
+    CREATE TABLE IF NOT EXISTS gols (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      partida_id INT NOT NULL,
+      minuto INT NOT NULL,
+      jogador_id INT NOT NULL,
+      time_id INT NOT NULL,
+      FOREIGN KEY (partida_id) REFERENCES partidas(id),
+      FOREIGN KEY (jogador_id) REFERENCES jogadores(id),
+      FOREIGN KEY (time_id) REFERENCES times(id)
+    );
+  `;
 
   pool.query(createUsuariosTable, (err, results) => {
     if (err) {
@@ -52,7 +80,7 @@ const createTables = () => {
     }
   });
 
-  pool.query(createJogadoresTable, (err, results) => {
+  pool.query(createTimesTable, (err, results) => {
     if (err) {
       console.error('Erro ao criar a tabela de times:', err);
     } else {
@@ -60,13 +88,29 @@ const createTables = () => {
     }
   });
 
-pool.query(createJogadoresTable, (err, results) => {
-  if (err) {
-    console.error('Erro ao criar a tabela de Jogadores:', err);
-  } else {
-    console.log('Tabela de Jogadores criada ou já existe.');
-  }
-});
+  pool.query(createJogadoresTable, (err, results) => {
+    if (err) {
+      console.error('Erro ao criar a tabela de jogadores:', err);
+    } else {
+      console.log('Tabela de jogadores criada ou já existe.');
+    }
+  });
+
+  pool.query(createPartidasTable, (err, results) => {
+    if (err) {
+      console.error('Erro ao criar a tabela de partidas:', err);
+    } else {
+      console.log('Tabela de partidas criada ou já existe.');
+    }
+  });
+
+  pool.query(createGolsTable, (err, results) => {
+    if (err) {
+      console.error('Erro ao criar a tabela de gols:', err);
+    } else {
+      console.log('Tabela de gols criada ou já existe.');
+    }
+  });
 };
 
 createTables();
