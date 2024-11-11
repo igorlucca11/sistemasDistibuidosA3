@@ -1,3 +1,3 @@
 # sistemasDistibuidosA3
 
-sistemasdistibuidosa3-production.up.railway.app
+api endpoint sistemasdistibuidosa3-production.up.railway.app
