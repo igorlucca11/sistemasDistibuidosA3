@@ -11,7 +11,9 @@ Projeto de API construída para apresentação para conclusão de semestre de An
 - Maria Eduarda De Paula
 
 ## Endpoints
-Base URL: `sistemasdistibuidosa3-production.up.railway.app`
+API Base URL: `sistemasdistibuidosa3-production.up.railway.app`
+
+FRONTEND: https://efficient-warmth-production.up.railway.app/
 
 Available endpoints:
 - `/times`
