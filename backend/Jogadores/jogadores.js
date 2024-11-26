@@ -1,7 +1,7 @@
 const pool = require("../db");
 
 const listarJogadores = (req, res) => {
-  const query = `SELECT *, t.nome AS time
+  const query = `SELECT j.id as id, *, t.nome AS time
                   FROM jogadores j
                   LEFT JOIN times t ON j.time_id = t.id`;
   pool.execute(query, (err, results) => {
