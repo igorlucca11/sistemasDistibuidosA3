@@ -52,7 +52,7 @@ app.patch('/gols/:id', editarGol); // Editar gol
 app.delete('/gols/:id', deletarGol); // Excluir gol
 app.get('/gols/artilharia', getArtilharia); // Artilharia
 
-app.post('/db', repopulateDB); // Listar todos os gols
+app.post('/db', repopulateDB);
 
 
 const PORT = process.env.PORT || 5000;

@@ -25,7 +25,7 @@ const listarTimes = (req, res) => {
 const editarTime = (req, res) => {
   const { id } = req.params;
   const { nome, sigla, local, corPrincipal, corSecundaria, capitao_id } = req.body;
-
+  console.log(req.body);
   const query = `UPDATE times SET nome = ?, sigla = ?, local = ?, cor_principal = ?, cor_secundaria = ?, capitao_id = ? WHERE id = ?`;
   pool.execute(query, [nome, sigla, local, corPrincipal, corSecundaria, capitao_id, id], (err, results) => {
     if (err) {
