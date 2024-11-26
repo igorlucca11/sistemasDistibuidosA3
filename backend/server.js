@@ -10,6 +10,9 @@ const getArtilharia = require('./Gols/artilharia');
 const repopulateDB = require('./dbTricks/repopulateDB');
 
 app.use(express.json());
+const cors = require('cors');
+app.use(cors());
+
 
 
 //Main Endpoint
