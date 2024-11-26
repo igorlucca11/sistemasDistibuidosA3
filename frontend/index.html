@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <img src="assets/soccer-ball.png" alt="">
+        <ul>
+            <li><a href="jogadores.html">Jogadores</a></li>
+            <li><a href="partidas.html">Partidas</a></li>
+            <li><a href="artilharia.html">Artilharia</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>TIMES</h2>
+        <button id="btnCriar" class="criar">Criar Time</button>
+        <div class="cardsContainer">
+        </div>
+
+
+        <div id="editModal" class="modal" style="display: none;">
+            <div class="modalContent">
+              <h2>Editar Time</h2>
+              <form id="editForm">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required />
+          
+                <label for="sigla">Sigla:</label>
+                <input type="text" id="sigla" name="sigla" required />
+          
+                <label for="local">Localização:</label>
+                <input type="text" id="local" name="local" required />
+          
+                <label for="cor_principal">Cor Principal:</label>
+                <input type="text" id="cor_principal" name="cor_principal" required />
+          
+                <label for="cor_secundaria">Cor Secundária:</label>
+                <input type="text" id="cor_secundaria" name="cor_secundaria" required />
+          
+                <div class="modalButtons">
+                  <button type="submit">Salvar</button>
+                  <button type="button" id="cancelButton">Voltar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+</body>
+
+</html>
+<script src="./times.js"></script>

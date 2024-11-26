@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogadores</title>
+</head>
+
+<body>
+    <nav>
+        <img src="assets/soccer-ball.png" alt="">
+        <ul>
+            <li><a href="index.html">Times</a></li>
+            <li><a href="partidas.html">Partidas</a></li>
+            <li><a href="artilharia.html">Artilharia</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>JOGADORES</h2>
+        <button id="btnCriarJogador" class="criar">Criar Jogador</button>
+        <div class="cardsContainer">
+            <!-- Cartões de Jogadores serão inseridos aqui pelo JS -->
+        </div>
+    </main>
+
+    <!-- Modal para editar Jogador -->
+    <div id="editModalJogador" class="modal" style="display: none;">
+        <div class="modalContent">
+            <h2>Editar Jogador</h2>
+            <form id="editFormJogador">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required />
+
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" required />
+
+                <label for="posicao">Posição:</label>
+                <input type="text" id="posicao" name="posicao" required />
+
+                <label for="time">Time:</label>
+                <select id="time" name="time" required>
+                </select>
+
+                <label for="idade">Idade:</label>
+                <input type="text" id="idade" name="idade" required />
+
+                <div class="modalButtons">
+                    <button type="submit">Salvar</button>
+                    <button type="button" id="cancelButtonJogador">Voltar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script src="jogadores.js"></script>
+</body>
+
+</html>
